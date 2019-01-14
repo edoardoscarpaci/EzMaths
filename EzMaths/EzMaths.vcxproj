@@ -1,6 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="ASM|Win32">
+      <Configuration>ASM</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ASM|x64">
+      <Configuration>ASM</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
@@ -52,6 +60,12 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='ASM|Win32'">
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='ASM|x64'">
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -98,11 +112,11 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;ASMCHECK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -130,7 +144,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -138,6 +152,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <AssemblerListingLocation>$(IntDir)ASM\</AssemblerListingLocation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -146,11 +162,80 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ASM|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>ASMCHECK </PreprocessorDefinitions>
+      <Optimization>Disabled</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\common\common.h" />
+    <ClInclude Include="src\matrix\mat.h" />
+    <ClInclude Include="src\matrix\mat2x2.h" />
+    <ClInclude Include="src\matrix\mat2\mat2x2\mat2x2.h" />
+    <ClInclude Include="src\matrix\mat2\mat2x2\mat2x2d.h" />
+    <ClInclude Include="src\matrix\mat2\mat2x2\mat2x2f.h" />
+    <ClInclude Include="src\matrix\mat2\mat2x2\mat2x2i.h" />
+    <ClInclude Include="src\matrix\mat2\mat2x2\mat2x2l.h" />
+    <ClInclude Include="src\matrix\mat2\mat2x3\mat2x3.h" />
+    <ClInclude Include="src\matrix\mat2\mat2x3\mat2x3d.h" />
+    <ClInclude Include="src\matrix\mat2\mat2x3\mat2x3f.h" />
+    <ClInclude Include="src\matrix\mat2\mat2x3\mat2x3i.h" />
+    <ClInclude Include="src\matrix\mat2\mat2x3\mat2x3l.h" />
+    <ClInclude Include="src\matrix\mat2\mat2x4\mat2x4.h" />
+    <ClInclude Include="src\matrix\mat2\mat2x4\mat2x4d.h" />
+    <ClInclude Include="src\matrix\mat2\mat2x4\mat2x4f.h" />
+    <ClInclude Include="src\matrix\mat2\mat2x4\mat2x4i.h" />
+    <ClInclude Include="src\matrix\mat2\mat2x4\mat2x4l.h" />
+    <ClInclude Include="src\matrix\mat3\mat3x2\mat3x2.h" />
+    <ClInclude Include="src\matrix\mat3\mat3x2\mat3x2d.h" />
+    <ClInclude Include="src\matrix\mat3\mat3x2\mat3x2f.h" />
+    <ClInclude Include="src\matrix\mat3\mat3x2\mat3x2i.h" />
+    <ClInclude Include="src\matrix\mat3\mat3x2\mat3x2l.h" />
+    <ClInclude Include="src\matrix\mat3\mat3x3\mat3x3.h" />
+    <ClInclude Include="src\matrix\mat3\mat3x3\mat3x3d.h" />
+    <ClInclude Include="src\matrix\mat3\mat3x3\mat3x3f.h" />
+    <ClInclude Include="src\matrix\mat3\mat3x3\mat3x3i.h" />
+    <ClInclude Include="src\matrix\mat3\mat3x3\mat3x3l.h" />
+    <ClInclude Include="src\matrix\mat3\mat3x4\mat3x4.h" />
+    <ClInclude Include="src\matrix\mat3\mat3x4\mat3x4d.h" />
+    <ClInclude Include="src\matrix\mat3\mat3x4\mat3x4f.h" />
+    <ClInclude Include="src\matrix\mat3\mat3x4\mat3x4i.h" />
+    <ClInclude Include="src\matrix\mat3\mat3x4\mat3x4l.h" />
+    <ClInclude Include="src\matrix\mat4\mat4x2\mat4x2.h" />
+    <ClInclude Include="src\matrix\mat4\mat4x2\mat4x2d.h" />
+    <ClInclude Include="src\matrix\mat4\mat4x2\mat4x2f.h" />
+    <ClInclude Include="src\matrix\mat4\mat4x2\mat4x2i.h" />
+    <ClInclude Include="src\matrix\mat4\mat4x2\mat4x2l.h" />
+    <ClInclude Include="src\matrix\mat4\mat4x3\mat4x3.h" />
+    <ClInclude Include="src\matrix\mat4\mat4x3\mat4x3d.h" />
+    <ClInclude Include="src\matrix\mat4\mat4x3\mat4x3f.h" />
+    <ClInclude Include="src\matrix\mat4\mat4x3\mat4x3i.h" />
+    <ClInclude Include="src\matrix\mat4\mat4x3\mat4x3l.h" />
+    <ClInclude Include="src\Preprocessor.h" />
+    <ClInclude Include="src\vec\vec.h" />
+    <ClInclude Include="src\vec\vec2\vec2d.h" />
+    <ClInclude Include="src\vec\vec2\vec2f.h" />
+    <ClInclude Include="src\vec\vec2\vec2i.h" />
+    <ClInclude Include="src\vec\vec2\vec2l.h" />
+    <ClInclude Include="src\vec\vec3\vec3.h" />
+    <ClInclude Include="src\vec\vec3\vec3D.h" />
+    <ClInclude Include="src\vec\vec3\vec3f.h" />
+    <ClInclude Include="src\vec\vec3\vec3i.h" />
+    <ClInclude Include="src\vec\vec3\vec3l.h" />
+    <ClInclude Include="src\vec\vec4\vec4.h" />
+    <ClInclude Include="src\vec\vec4\vec4D.h" />
+    <ClInclude Include="src\vec\vec4\vec4f.h" />
+    <ClInclude Include="src\vec\vec4\vec4i.h" />
+    <ClInclude Include="src\vec\vec4\vec4L.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="src\vec\vec2\vec2.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
