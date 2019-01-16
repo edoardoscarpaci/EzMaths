@@ -1,7 +1,5 @@
 #pragma once
 
-#pragma once
-#pragma once
 #include "vec/vec.h"
 #include "Preprocessor.h"
 #include <cmath>
@@ -91,43 +89,13 @@ public:
 
 	}*/
 
-	Mat2x4<T>& dot(const Mat2x2<T>& right)
-	{
 
-		value[0][0] = value[0][0] * right[0][0] + value[1][0] * right[0][1];
-		value[0][1] = value[0][1] * right[0][0] + value[1][1] * right[0][1];
-		value[0][2] = value[0][2] * right[0][0] + value[1][2] * right[0][1];
-		value[0][3] = value[0][3] * right[0][0] + value[1][3] * right[0][1];
-
-
-		value[1][0] = value[0][0] * right[1][0] + value[1][0] * right[1][1];
-		value[1][1] = value[0][1] * right[1][0] + value[1][1] * right[1][1];
-		value[1][2] = value[0][2] * right[1][0] + value[1][2] * right[1][1];
-		value[1][3] = value[0][3] * right[1][0] + value[1][3] * right[1][1];
-
-
-		return *this;
-	}
-
-
-	Vec4<T> dot(const Vec2<T>& right)
-	{
-		return new Vec4<T>
-			(
-				value[0][0] * right.x + value[1][0] * right.y,
-				value[0][1] * right.x + value[1][1] * right.y,
-				value[0][2] * right.x + value[1][2] * right.y,
-				value[0][3] * right.x + value[1][3] * right.y,
-
-			)
-	}
-
-	inline static Mat2x4<T>& zero()
+	inline static Mat2x4<T> zero()
 	{
 		return new Mat2x4<T>(new Vec4<T>(0, 0, 0, 0), new Vec4<T>(0, 0, 0, 0));
 	}
 
-	inline static Mat2x4<T>& one()
+	inline static Mat2x4<T> one()
 	{
 		return new Mat2x4<T>(new Vec3<T>(1, 1, 1, 1), new Vec4<T>(1, 1, 1, 1));
 

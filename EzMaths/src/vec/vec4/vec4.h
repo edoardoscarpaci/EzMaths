@@ -151,14 +151,14 @@ public:
 
 
 
-	static Vec4<T>& Zero()
+	static Vec4<T> Zero()
 	{
-		return new Vec4(0, 0, 0, 1);
+		return new Vec4<T>(0, 0, 0, 1);
 	}
 
-	static Vec4<T>& Up()
+	static Vec4<T> Up()
 	{
-		return new Vec4(0, 1, 0, 1);
+		return new Vec4<T>(0, 1, 0, 1);
 	}
 
 	static Vec4<T>& forward()
@@ -166,9 +166,9 @@ public:
 		return new Vec4(0, 0, 1, 1);
 	}
 
-	static Vec4<T>& right()
+	static Vec4<T> right()
 	{
-		return new Vec4(1, 0, 0, 1);
+		return new Vec4<T>(1, 0, 0, 1);
 	}
 
 
@@ -275,7 +275,7 @@ inline static float angleBetween2Vector(const Vec4<T>& right, const Vec4<T>& lef
 
 
 template <typename T>
-inline static Vec4<T>& crossProduct(const Vec4<T>& right, const Vec4<T>& left)
+inline static Vec4<T> crossProduct(const Vec4<T>& right, const Vec4<T>& left)
 {
 	return right.crossProduct(left);
 }

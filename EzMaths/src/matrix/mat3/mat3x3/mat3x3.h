@@ -82,18 +82,18 @@ public:
 		return *this;
 	}
 
-	inline static Mat3x3<T>& zero()
+	inline static Mat3x3<T> zero()
 	{
 		return new Mat3x3<T>(new Vec3<T>(0, 0, 0), new Vec3<T>(0, 0, 0), new Vec3<T>(0, 0, 0));
 	}
 
-	inline static Mat3x3<T>& one()
+	inline static Mat3x3<T> one()
 	{
 		return new Mat3x3<T>(new Vec3<T>(1, 1, 1), new Vec3<T>(1, 1, 1), new Vec3<T>(1, 1, 1));
 
 	}
 
-	inline static Mat3x3<T>& identity()
+	inline static Mat3x3<T> identity()
 	{
 		return new Mat3x3<T>(new Vec3<T>(1, 0, 0), new Vec3<T>(0, 1, 0), new Vec3<T>(0, 0, 1));
 	}

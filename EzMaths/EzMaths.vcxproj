@@ -214,6 +214,11 @@
     <ClInclude Include="src\matrix\mat4\mat4x3\mat4x3f.h" />
     <ClInclude Include="src\matrix\mat4\mat4x3\mat4x3i.h" />
     <ClInclude Include="src\matrix\mat4\mat4x3\mat4x3l.h" />
+    <ClInclude Include="src\matrix\mat4\mat4x4\mat4x4.h" />
+    <ClInclude Include="src\matrix\mat4\mat4x4\mat4x4d.h" />
+    <ClInclude Include="src\matrix\mat4\mat4x4\mat4x4f.h" />
+    <ClInclude Include="src\matrix\mat4\mat4x4\mat4x4i.h" />
+    <ClInclude Include="src\matrix\mat4\mat4x4\mat4x4l.h" />
     <ClInclude Include="src\Preprocessor.h" />
     <ClInclude Include="src\vec\vec.h" />
     <ClInclude Include="src\vec\vec2\vec2d.h" />

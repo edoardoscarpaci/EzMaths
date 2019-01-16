@@ -91,12 +91,12 @@ public:
 		return *this;
 	}
 
-	inline static Mat4x3<T>& zero()
+	inline static Mat4x3<T> zero()
 	{
 		return new Mat4x3<T>(new Vec3<T>(0, 0, 0), new Vec3<T>(0, 0, 0), new Vec3<T>(0, 0, 0), new Vec3<T>(0, 0, 0));
 	}
 
-	inline static Mat4x3<T>& one()
+	inline static Mat4x3<T> one()
 	{
 		return new Mat4x3<T>(new Vec3<T>(1, 1, 1), new Vec3<T>(1, 1, 1), new Vec3<T>(1, 1, 1), new Vec3<T>(1, 1, 1));
 	}

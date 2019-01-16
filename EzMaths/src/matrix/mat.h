@@ -43,3 +43,9 @@
 #include "mat4/mat4x3/mat4x3d.h"
 #include "mat4/mat4x3/mat4x3i.h"
 #include "mat4/mat4x3/mat4x3l.h"
+
+
+#include "mat4/mat4x4/mat4x4f.h"
+#include "mat4/mat4x4/mat4x4d.h"
+#include "mat4/mat4x4/mat4x4i.h"
+#include "mat4/mat4x4/mat4x4l.h"

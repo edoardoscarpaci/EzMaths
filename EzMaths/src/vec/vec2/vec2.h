@@ -109,20 +109,20 @@ public:
 	}
 
 
-	static Vec2<T>& Zero()
+	static Vec2<T> Zero()
 	{
-		return new Vec2(0, 0);
+		return new Vec2<T>(0, 0);
 	}
 
 	
-	static Vec2<T>& Up()
+	static Vec2<T> Up()
 	{
-		return new Vec2(0, 1);
+		return new Vec2<T>(0, 1);
 	}
 
-	static Vec2<T>& forward()
+	static Vec2<T> forward()
 	{
-		return new Vec2(1, 0);
+		return new Vec2<T>(1, 0);
 	}
 
 

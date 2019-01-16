@@ -201,6 +201,21 @@
     <ClInclude Include="src\matrix\mat4\mat4x3\mat4x3l.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
+    <ClInclude Include="src\matrix\mat4\mat4x4\mat4x4.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\matrix\mat4\mat4x4\mat4x4f.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\matrix\mat4\mat4x4\mat4x4d.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\matrix\mat4\mat4x4\mat4x4l.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="src\matrix\mat4\mat4x4\mat4x4i.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

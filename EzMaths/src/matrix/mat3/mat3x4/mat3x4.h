@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include "vec/vec.h"
 #include "Preprocessor.h"
 #include <cmath>
@@ -83,12 +82,12 @@ public:
 		return *this;
 	}
 
-	inline static Mat3x4<T>& zero()
+	inline static Mat3x4<T> zero()
 	{
 		return new Mat3x4<T>(new Vec4<T>(0, 0, 0, 0), new Vec4<T>(0, 0, 0, 0), new Vec4<T>(0, 0, 0, 0));
 	}
 
-	inline static Mat3x4<T>& one()
+	inline static Mat3x4<T> one()
 	{
 		return new Mat3x4<T>(new Vec4<T>(1, 1, 1, 1), new Vec4<T>(1, 1, 1, 1), new Vec4<T>(1, 1, 1, 1));
 

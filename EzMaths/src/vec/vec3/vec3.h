@@ -137,24 +137,24 @@ public:
 		return 3;
 	}
 
-	static Vec3<T>& Zero()
+	static Vec3<T> Zero()
 	{
-		return new Vec3(0, 0, 0);
+		return new Vec3<T>(0, 0, 0);
 	}
 
-	static Vec3<T>& Up()
+	static Vec3<T> Up()
 	{
-		return new Vec3(0, 1, 0);
+		return new Vec3<T>(0, 1, 0);
 	}
 
-	static Vec3<T>& forward()
+	static Vec3<T> forward()
 	{
-		return new Vec3(0, 0 ,1);
+		return new Vec3<T>(0, 0 ,1);
 	}
 
-	static Vec3<T>& right() 
+	static Vec3<T> right() 
 	{
-		return new Vec3(1, 0, 0);
+		return new Vec3<T>(1, 0, 0);
 	}
 
 
