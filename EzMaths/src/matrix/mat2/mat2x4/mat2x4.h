@@ -75,19 +75,6 @@ public:
 		return *this;
 	}
 
-	/*Mat2x3<T>& operator*=(const Mat2x3& right)
-	{
-		value[0] *= right[0];
-		value[1] *= right[1];
-
-	}*/
-
-	/*Mat2x3<T>& operator/=(const Mat2x3& right)
-	{
-		value[0] /= right[0];
-		value[1] /= right[1];
-
-	}*/
 
 
 	inline static Mat2x4<T> zero()
@@ -127,9 +114,28 @@ inline Mat2x4<T> operator*(Mat2x4<T> left, const float& scalar)
 }
 
 template <typename T>
-inline Mat2x4<T> operator*(const Mat2x4<T>& left, const Mat2x2<T>& right)
+inline Mat2x4<T> operator/(Mat2x4<T> left, const float& scalar)
 {
+	return (left /= scalar);
+}
 
+
+template <typename T>
+inline Mat2x4<T> operator*(const Mat2x4<T>& left, const Vec2<T>& right) 
+{
+	return new Mat2x4<T>
+		(
+			left[0][0] * right.x + left[1][0] * right.y,
+			left[0][1] * right.x + left[1][1] * right.y,
+			left[0][2] * right.x + left[1][2] * right.y,
+			left[0][3] * right.x + left[1][3] * right.y
+
+		);
+}
+
+template <typename T>
+inline Mat2x4<T> operator*(const Mat2x4<T>& left, const Mat2x2<T>& right) 
+{
 	return new Mat2x4<T>
 		(
 			left[0][0] * right[0][0] + left[1][0] * right[0][1],
@@ -137,42 +143,66 @@ inline Mat2x4<T> operator*(const Mat2x4<T>& left, const Mat2x2<T>& right)
 			left[0][2] * right[0][0] + left[1][2] * right[0][1],
 			left[0][3] * right[0][0] + left[1][3] * right[0][1],
 
-			left[0][0] * right[1][0] + left[1][0] * right[1][1]
-			left[0][1] * right[1][0] + left[1][1] * right[1][1]
-			left[0][2] * right[1][0] + left[1][2] * right[1][1]
-			left[0][2] * right[1][0] + left[1][3] * right[1][1]
+			left[0][0] * right[1][0] + left[1][0] * right[1][1],
+			left[0][1] * right[1][0] + left[1][1] * right[1][1],
+			left[0][2] * right[1][0] + left[1][2] * right[1][1],
+			left[0][3] * right[1][0] + left[1][3] * right[1][1]
 
 		);
 }
 
 template <typename T>
-inline Vec4<T> operator*(const Mat2x4<T>& left, const Vec2<T>& right)
+inline Mat3x4<T> operator*(const Mat2x4<T>& left, const Mat3x2<T>& right)
 {
-	return new Vec3<T>
+	return new Mat3x4<T>
 		(
-			right.x * left[0][0] + right.y * left[1][0],
-			right.x * left[0][1] + right.y * left[1][1],
-			right.x * left[0][2] + right.y * left[1][2],
-			right.x * left[0][3] + right.y * left[1][3]
+			left[0][0] * right[0][0] + left[1][0] * right[0][1],
+			left[0][1] * right[0][0] + left[1][1] * right[0][1],
+			left[0][2] * right[0][0] + left[1][2] * right[0][1],
+			left[0][3] * right[0][0] + left[1][3] * right[0][1],
+
+			left[0][0] * right[1][0] + left[1][0] * right[1][1],
+			left[0][1] * right[1][0] + left[1][1] * right[1][1],
+			left[0][2] * right[1][0] + left[1][2] * right[1][1],
+			left[0][3] * right[1][0] + left[1][3] * right[1][1],
+
+			left[0][0] * right[2][0] + left[1][0] * right[2][1],
+			left[0][1] * right[2][0] + left[1][1] * right[2][1],
+			left[0][2] * right[2][0] + left[1][2] * right[2][1],
+			left[0][3] * right[2][0] + left[1][3] * right[2][1]
 		);
 }
 
+
 template <typename T>
-inline Vec2<T> operator*(const Vec4<T>& right, const Mat2x4<T>& left)
+inline Mat4x4<T> operator*(const Mat2x4<T>& left, const Mat4x2<T>& right)
 {
-	return new Vec2<T>
+	return new Mat3x4<T>
 		(
-			right.x * left[0][0] + right.y * left[0][1] + right.z * left[0][2], right.w * value[0][3];
-			right.x * left[1][0] + right.y * left[1][1] + right.z * left[1][2], right.w * value[1][3];
+			left[0][0] * right[0][0] + left[1][0] * right[0][1],
+			left[0][1] * right[0][0] + left[1][1] * right[0][1],
+			left[0][2] * right[0][0] + left[1][2] * right[0][1],
+			left[0][3] * right[0][0] + left[1][3] * right[0][1],
+
+			left[0][0] * right[1][0] + left[1][0] * right[1][1],
+			left[0][1] * right[1][0] + left[1][1] * right[1][1],
+			left[0][2] * right[1][0] + left[1][2] * right[1][1],
+			left[0][3] * right[1][0] + left[1][3] * right[1][1],
+
+			left[0][0] * right[2][0] + left[1][0] * right[2][1],
+			left[0][1] * right[2][0] + left[1][1] * right[2][1],
+			left[0][2] * right[2][0] + left[1][2] * right[2][1],
+			left[0][3] * right[2][0] + left[1][3] * right[2][1],
+
+			left[0][0] * right[3][0] + left[1][0] * right[3][1],
+			left[0][1] * right[3][0] + left[1][1] * right[3][1],
+			left[0][2] * right[3][0] + left[1][2] * right[3][1],
+			left[0][3] * right[3][0] + left[1][3] * right[3][1]
 		);
 }
 
 
 
-template <typename T>
-inline Mat2x4<T> operator/(Mat2x4<T> left, const float& scalar)
-{
-	return (left /= scalar);
-}
+
 
 

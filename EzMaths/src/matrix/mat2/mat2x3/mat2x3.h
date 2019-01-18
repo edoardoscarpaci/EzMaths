@@ -256,6 +256,72 @@ inline Mat2x4<T> operator*(const Mat3x4<T>& left, const Mat2x3<T>& right)
 		);
 }
 
+template <typename T>
+inline Vec2<T> operator* (const Vec4<T> left, const Mat2x4<T>& right) 
+{
+	return new Vec2 <T>
+		(
+			left.x * right[0][0] + left.y * right[0][1] + left.z * right[0][2] + left.w * right[0][3],
+			left.x * right[1][0] + left.y * right[1][1] + left.z * right[1][2] + left.w * right[1][3]
+
+		);
+
+}
+
+template <typename T>
+inline Mat2x2<T> operator* (const Mat4x2<T> left, const Mat2x4<T>& right)
+{
+	return new Mat2x2 <T>
+		(
+			left[0][0] * right[0][0] + left[1][0] * right[0][1] + left[2][0] * right[0][2] + left[3][0] * right[0][3],
+			left[0][1] * right[0][0] + left[1][1] * right[0][1] + left[2][1] * right[0][2] + left[3][1] * right[0][3],
+
+			left[0][0] * right[1][0] + left[1][0] * right[1][1] + left[2][0] * right[1][2] + left[3][0] * right[1][3],
+			left[0][1] * right[1][0] + left[1][1] * right[1][1] + left[2][1] * right[1][2] + left[3][1] * right[1][3]
+
+		);
+
+}
+
+template <typename T>
+inline Mat2x3<T> operator* (const Mat4x3<T> left, const Mat2x4<T>& right)
+{
+	return new Mat2x2 <T>
+		(
+			left[0][0] * right[0][0] + left[1][0] * right[0][1] + left[2][0] * right[0][2] + left[3][0] * right[0][3],
+			left[0][1] * right[0][0] + left[1][1] * right[0][1] + left[2][1] * right[0][2] + left[3][1] * right[0][3],
+			left[0][2] * right[0][0] + left[1][2] * right[0][1] + left[2][2] * right[0][2] + left[3][2] * right[0][3],
+
+
+
+			left[0][0] * right[1][0] + left[1][0] * right[1][1] + left[2][0] * right[1][2] + left[3][0] * right[1][3],
+			left[0][1] * right[1][0] + left[1][1] * right[1][1] + left[2][1] * right[1][2] + left[3][1] * right[1][3],
+			left[0][2] * right[1][0] + left[1][2] * right[1][1] + left[2][2] * right[1][2] + left[3][2] * right[1][3]
+			
+		);
+
+}
+
+template <typename T>
+inline Mat2x4<T> operator* (const Mat4x4<T> left, const Mat2x4<T>& right)
+{
+	return new Mat2x2 <T>
+		(
+			left[0][0] * right[0][0] + left[1][0] * right[0][1] + left[2][0] * right[0][2] + left[3][0] * right[0][3],
+			left[0][1] * right[0][0] + left[1][1] * right[0][1] + left[2][1] * right[0][2] + left[3][1] * right[0][3],
+			left[0][2] * right[0][0] + left[1][2] * right[0][1] + left[2][2] * right[0][2] + left[3][2] * right[0][3],
+			left[0][3] * right[0][0] + left[1][3] * right[0][1] + left[2][3] * right[0][2] + left[3][3] * right[0][3],
+
+
+
+			left[0][0] * right[1][0] + left[1][0] * right[1][1] + left[2][0] * right[1][2] + left[3][0] * right[1][3],
+			left[0][1] * right[1][0] + left[1][1] * right[1][1] + left[2][1] * right[1][2] + left[3][1] * right[1][3],
+			left[0][2] * right[1][0] + left[1][2] * right[1][1] + left[2][2] * right[1][2] + left[3][2] * right[1][3],
+			left[0][3] * right[1][0] + left[1][3] * right[1][1] + left[2][3] * right[1][2] + left[3][3] * right[1][3]
+
+		);
+
+}
 
 
 
