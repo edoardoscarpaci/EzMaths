@@ -165,6 +165,80 @@ inline Vec4<T> operator* (const Mat4x4<T>& left, const Vec4<T>& right)
 
 }
 
+
+template <typename T>
+inline Mat2x4<T> operator* (const Mat4x4<T>& left, const Mat2x4<T>& right)
+{
+	return new Mat2x4<T>
+		(
+			left[0][0] * right[0][0] + left[1][0] * right[0][1] + left[2][0] * right[0][2] + left[3][0] * right[0][3],
+			left[0][1] * right[0][0] + left[1][1] * right[0][1] + left[2][1] * right[0][2] + left[3][1] * right[0][3],
+			left[0][2] * right[0][0] + left[1][2] * right[0][1] + left[2][2] * right[0][2] + left[3][2] * right[0][3],
+			left[0][3] * right[0][0] + left[1][3] * right[0][1] + left[2][3] * right[0][2] + left[3][3] * right[0][3],
+
+			left[0][0] * right[1][0] + left[1][0] * right[1][1] + left[2][0] * right[1][2] + left[3][0] * right[1][3],
+			left[0][1] * right[1][0] + left[1][1] * right[1][1] + left[2][1] * right[1][2] + left[3][1] * right[1][3],
+			left[0][2] * right[1][0] + left[1][2] * right[1][1] + left[2][2] * right[1][2] + left[3][2] * right[1][3],
+			left[0][3] * right[1][0] + left[1][3] * right[1][1] + left[2][3] * right[1][2] + left[3][3] * right[1][3]
+
+		);
+
+}
+
+template <typename T>
+inline Mat3x4<T> operator* (const Mat4x4<T>& left, const Mat3x4<T>& right)
+{
+	return new Mat3x4<T>
+		(
+			left[0][0] * right[0][0] + left[1][0] * right[0][1] + left[2][0] * right[0][2] + left[3][0] * right[0][3],
+			left[0][1] * right[0][0] + left[1][1] * right[0][1] + left[2][1] * right[0][2] + left[3][1] * right[0][3],
+			left[0][2] * right[0][0] + left[1][2] * right[0][1] + left[2][2] * right[0][2] + left[3][2] * right[0][3],
+			left[0][3] * right[0][0] + left[1][3] * right[0][1] + left[2][3] * right[0][2] + left[3][3] * right[0][3],
+
+			left[0][0] * right[1][0] + left[1][0] * right[1][1] + left[2][0] * right[1][2] + left[3][0] * right[1][3],
+			left[0][1] * right[1][0] + left[1][1] * right[1][1] + left[2][1] * right[1][2] + left[3][1] * right[1][3],
+			left[0][2] * right[1][0] + left[1][2] * right[1][1] + left[2][2] * right[1][2] + left[3][2] * right[1][3],
+			left[0][3] * right[1][0] + left[1][3] * right[1][1] + left[2][3] * right[1][2] + left[3][3] * right[1][3],
+
+			left[0][0] * right[1][0] + left[1][0] * right[2][1] + left[2][0] * right[2][2] + left[3][0] * right[2][3],
+			left[0][1] * right[1][0] + left[1][1] * right[2][1] + left[2][1] * right[2][2] + left[3][1] * right[2][3],
+			left[0][2] * right[1][0] + left[1][2] * right[2][1] + left[2][2] * right[2][2] + left[3][2] * right[2][3],
+			left[0][3] * right[1][0] + left[1][3] * right[2][1] + left[2][3] * right[2][2] + left[3][3] * right[2][3]
+
+		);
+
+}
+
+template <typename T>
+inline Mat4x4<T> operator* (const Mat4x4<T>& left, const Mat4x4<T>& right)
+{
+	return new Mat4x4<T>
+		(
+			left[0][0] * right[0][0] + left[1][0] * right[0][1] + left[2][0] * right[0][2] + left[3][0] * right[0][3],
+			left[0][1] * right[0][0] + left[1][1] * right[0][1] + left[2][1] * right[0][2] + left[3][1] * right[0][3],
+			left[0][2] * right[0][0] + left[1][2] * right[0][1] + left[2][2] * right[0][2] + left[3][2] * right[0][3],
+			left[0][3] * right[0][0] + left[1][3] * right[0][1] + left[2][3] * right[0][2] + left[3][3] * right[0][3],
+
+			left[0][0] * right[1][0] + left[1][0] * right[1][1] + left[2][0] * right[1][2] + left[3][0] * right[1][3],
+			left[0][1] * right[1][0] + left[1][1] * right[1][1] + left[2][1] * right[1][2] + left[3][1] * right[1][3],
+			left[0][2] * right[1][0] + left[1][2] * right[1][1] + left[2][2] * right[1][2] + left[3][2] * right[1][3],
+			left[0][3] * right[1][0] + left[1][3] * right[1][1] + left[2][3] * right[1][2] + left[3][3] * right[1][3],
+
+			left[0][0] * right[1][0] + left[1][0] * right[2][1] + left[2][0] * right[2][2] + left[3][0] * right[2][3],
+			left[0][1] * right[1][0] + left[1][1] * right[2][1] + left[2][1] * right[2][2] + left[3][1] * right[2][3],
+			left[0][2] * right[1][0] + left[1][2] * right[2][1] + left[2][2] * right[2][2] + left[3][2] * right[2][3],
+			left[0][3] * right[1][0] + left[1][3] * right[2][1] + left[2][3] * right[2][2] + left[3][3] * right[2][3],
+
+			left[0][0] * right[3][0] + left[1][0] * right[3][1] + left[2][0] * right[3][2] + left[3][0] * right[3][3],
+			left[0][1] * right[3][0] + left[1][1] * right[3][1] + left[2][1] * right[3][2] + left[3][1] * right[3][3],
+			left[0][2] * right[3][0] + left[1][2] * right[3][1] + left[2][2] * right[3][2] + left[3][2] * right[3][3],
+			left[0][3] * right[3][0] + left[1][3] * right[3][1] + left[2][3] * right[3][2] + left[3][3] * right[3][3]
+
+		);
+
+}
+
+
 template <typename T>
 inline Vec4<T> operator* (const Vec4<T>& left, const Mat4x4<T>& right)
 {
@@ -174,9 +248,61 @@ inline Vec4<T> operator* (const Vec4<T>& left, const Mat4x4<T>& right)
 			left.x * right[1][0] + left.y * right[1][1] + left.z * right[1][2] + left.w * right[1][3],
 			left.x * right[2][0] + left.y * right[2][1] + left.z * right[2][2] + left.w * right[2][3],
 			left.x * right[3][0] + left.y * right[3][1] + left.z * right[3][2] + left.w * right[3][3]
+
 		);
 
 }
+
+template <typename T>
+inline Mat4x2<T> operator* (const Mat4x2<T>& left, const Mat4x4<T>& right)
+{
+	return new Mat4x2<T>
+		(
+			left[0][0] * right[0][0] + left[1][0] * right[0][1] + left[2][0] * right[0][2] + left[3][0] * right[0][3],
+			left[0][1] * right[0][0] + left[1][1] * right[0][1] + left[2][1] * right[0][2] + left[3][1] * right[0][3],
+
+			left[0][0] * right[1][0] + left[1][0] * right[1][1] + left[2][0] * right[1][2] + left[3][0] * right[1][3],
+			left[0][1] * right[1][0] + left[1][1] * right[1][1] + left[2][1] * right[1][2] + left[3][1] * right[1][3],
+
+			left[0][0] * right[2][0] + left[1][0] * right[2][1] + left[2][0] * right[2][2] + left[3][0] * right[2][3],
+			left[0][1] * right[2][0] + left[1][1] * right[2][1] + left[2][1] * right[2][2] + left[3][1] * right[2][3],
+
+			left[0][0] * right[3][0] + left[1][0] * right[3][1] + left[2][0] * right[3][2] + left[3][0] * right[3][3],
+			left[0][1] * right[3][0] + left[1][1] * right[3][1] + left[2][1] * right[3][2] + left[3][1] * right[3][3]
+
+		);
+
+}
+
+
+template <typename T>
+inline Mat4x3<T> operator* (const Mat4x3<T>& left, const Mat4x4<T>& right)
+{
+	return new Mat4x3<T>
+		(
+			left[0][0] * right[0][0] + left[1][0] * right[0][1] + left[2][0] * right[0][2] + left[3][0] * right[0][3],
+			left[0][1] * right[0][0] + left[1][1] * right[0][1] + left[2][1] * right[0][2] + left[3][1] * right[0][3],
+			left[0][2] * right[0][0] + left[1][2] * right[0][1] + left[2][2] * right[0][2] + left[3][2] * right[0][3],
+
+
+			left[0][0] * right[1][0] + left[1][0] * right[1][1] + left[2][0] * right[1][2] + left[3][0] * right[1][3],
+			left[0][1] * right[1][0] + left[1][1] * right[1][1] + left[2][1] * right[1][2] + left[3][1] * right[1][3],
+			left[0][2] * right[1][0] + left[1][2] * right[1][1] + left[2][2] * right[1][2] + left[3][2] * right[1][3],
+
+
+			left[0][0] * right[2][0] + left[1][0] * right[2][1] + left[2][0] * right[2][2] + left[3][0] * right[2][3],
+			left[0][1] * right[2][0] + left[1][1] * right[2][1] + left[2][1] * right[2][2] + left[3][1] * right[2][3],
+			left[0][2] * right[2][0] + left[1][2] * right[2][1] + left[2][2] * right[2][2] + left[3][2] * right[2][3],
+
+
+			left[0][0] * right[3][0] + left[1][0] * right[3][1] + left[2][0] * right[3][2] + left[3][0] * right[3][3],
+			left[0][1] * right[3][0] + left[1][1] * right[3][1] + left[2][1] * right[3][2] + left[3][1] * right[3][3],
+			left[0][2] * right[3][0] + left[1][2] * right[3][1] + left[2][2] * right[3][2] + left[3][2] * right[3][3]
+		);
+
+}
+
+
 
 
 
